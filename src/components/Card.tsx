@@ -9,12 +9,12 @@ interface CardProps {
 }
 
 const Card: FC<CardProps> = ({ product, onDelete }) => {
-    const [liked, setLiked] = useState(false);
+    const [liked, setLiked] = useState(product.liked); // Изначально состояние из пропса
     const navigate = useNavigate();
 
     const toggleLike = () => {
         setLiked(!liked);
-    };
+        };
 
     const handleDelete = () => {
         onDelete(product.id);

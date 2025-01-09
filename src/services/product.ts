@@ -1,10 +1,5 @@
 import { BASE_API_URL, API_HEADERS } from "../config/api";
 
-export interface Category {
-    id: number;
-    name: string;
-    image: string;
-}
 
 export interface Product {
     id: number;
@@ -17,6 +12,8 @@ export interface Product {
         image: string;
     };
     images: string[];
+    liked: boolean; // Добавляем поле для избранного
+
 }
 
 

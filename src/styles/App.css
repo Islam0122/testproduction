@@ -106,4 +106,9 @@ main {
     color: red;
     transform: scale(1.2);
 }
+/* Добавьте это в ваш файл стилей */
+.img-thumbnail:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
 

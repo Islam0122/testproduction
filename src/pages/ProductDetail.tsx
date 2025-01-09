@@ -39,10 +39,38 @@ const ProductDetail: FC = () => {
 
     return (
         <div className="container my-5">
-            <h1>{product?.title}</h1>
-            <img src={product?.images[0]} alt={product?.title} className="img-fluid" />
-            <p>{product?.description}</p>
-            <p className="text-primary font-weight-bold">${product?.price}</p>
+            <div className="row">
+                {/* Left Column: Product Image */}
+                <div className="col-md-6">
+                    <img
+                        src={product?.images[0]}
+                        alt={product?.title}
+                        className="img-fluid rounded shadow-lg"
+                    />
+                </div>
+
+                {/* Right Column: Product Details */}
+                <div className="col-md-6">
+                    <h1 className="display-4 font-weight-bold">{product?.title}</h1>
+                    <p className="text-muted">{product?.category.name}</p>
+                    <p className="lead">{product?.description}</p>
+                    <p className="text-primary font-weight-bold fs-3">${product?.price}</p>
+                    <div className="d-flex gap-3">
+                        {/* Additional images carousel */}
+                        {product?.images.slice(1).map((image, index) => (
+                            <img
+                                key={index}
+                                src={image}
+                                alt={`product-image-${index}`}
+                                className="img-thumbnail"
+                                style={{ width: '100px', cursor: 'pointer' }}
+                                onClick={() => window.open(image, '_blank')}
+                            />
+                        ))}
+                    </div>
+                    <button className="btn btn-primary mt-4 px-5 py-2">Add to Cart</button>
+                </div>
+            </div>
         </div>
     );
 };
