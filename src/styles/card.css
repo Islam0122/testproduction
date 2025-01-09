@@ -1,0 +1,74 @@
+.product-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    width: 300px;
+    height: 400px;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.product-card-link {
+    text-decoration: none;
+    color: inherit;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-card-info {
+    padding: 10px;
+}
+
+.product-card-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.product-card-description {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.product-card-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.like-button, .delete-button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.like-button.liked {
+    color: #f0a500;
+}
+
+.delete-button {
+    color: #e74c3c;
+}
+
+.like-button:hover, .delete-button:hover {
+    color: #333;
+}

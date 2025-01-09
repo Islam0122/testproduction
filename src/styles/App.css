@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+.container {
+    width: 100%;
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 35px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    background: #C2EFD4 no-repeat center center;
+    color: #224F34;
+    padding: 30px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    h1 {
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+    nav {
+        a {
+            margin: 0 15px;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none; /* Убираем подчеркивание */
+            transition: color 0.3s ease, transform 0.2s ease; /* Плавные изменения цвета и масштаба */
+
+            &:hover {
+                color: #000;
+                transform: scale(1.1); /* Легкое увеличение при наведении */
+            }
+
+            &.active {
+                color: #000;
+                font-weight: 700; /* Увеличиваем жирность для активной ссылки */
+            }
+        }
+    }
+
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    footer p {
+        font-size: 14px;
+        margin: 0;
+    }
+}
+
+main {
+    margin-top: 60px;
+    padding: 40px 0;
+}
+.card {
+    background-color: #fff;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    object-fit: cover;
+    height: 200px;
+}
+
+.like-button {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.like-button.liked {
+    color: red;
+    transform: scale(1.2);
+}
+
