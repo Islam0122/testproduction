@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { FaHeart, FaTrash } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { Product } from '../services/product';
@@ -9,12 +9,27 @@ interface CardProps {
 }
 
 const Card: FC<CardProps> = ({ product, onDelete }) => {
-    const [liked, setLiked] = useState(product.liked); // Изначально состояние из пропса
+    const [liked, setLiked] = useState<boolean>(false);
     const navigate = useNavigate();
 
+    // Проверка на наличие в localStorage при монтировании компонента
+    useEffect(() => {
+        const likedProducts = JSON.parse(localStorage.getItem('likedProducts') || '[]');
+        setLiked(likedProducts.includes(product.id));
+    }, [product.id]);
+
     const toggleLike = () => {
+        let likedProducts = JSON.parse(localStorage.getItem('likedProducts') || '[]');
+
+        if (liked) {
+            likedProducts = likedProducts.filter((id: number) => id !== product.id);
+        } else {
+            likedProducts.push(product.id);
+        }
+
+        localStorage.setItem('likedProducts', JSON.stringify(likedProducts));
         setLiked(!liked);
-        };
+    };
 
     const handleDelete = () => {
         onDelete(product.id);
